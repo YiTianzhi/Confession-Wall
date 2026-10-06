@@ -46,7 +46,7 @@ npm run dev
 复制 `.env.example` 为 `.env`，填入：
 
 ```bash
-DATABASE_URL=postgresql://用户:密码@127.0.0.1:5432/confession_wall
+DATABASE_URL=postgresql://用户:密码@127.0.0.1:5433/confession_wall
 AUTH_SECRET=一段随机长字符串
 ADMIN_EMAIL=你的管理员邮箱
 DEEPSEEK_API_KEY=你的key
