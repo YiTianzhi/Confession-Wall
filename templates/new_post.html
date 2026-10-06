@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block title %}发布表白 - {{ WALL_NAME }}{% endblock %}
+
+{% block content %}
+<div class="card form-card">
+  <h1>发布表白</h1>
+  <p class="muted">发布后将以匿名昵称展示，不会显示你的任何个人信息。</p>
+
+  <form method="post">
+    <label for="nickname">匿名昵称（可选）</label>
+    <input type="text" id="nickname" name="nickname" maxlength="20" placeholder="留空则自动生成，如「匿名小鹿」">
+
+    <label for="post-content">想说的话（500 字以内）</label>
+    <textarea id="post-content" name="content" maxlength="500" rows="6" placeholder="把想说的话写在这里…" required></textarea>
+    <div class="counter"><span id="char-count">0</span> / 500</div>
+
+    <p class="muted small">提交后内容将由 AI 辅助审核。</p>
+
+    {% if turnstile_site_key %}
+      <div class="captcha-box">
+        <div class="cf-turnstile" data-sitekey="{{ turnstile_site_key }}" data-theme="light"></div>
+      </div>
+      <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    {% endif %}
+
+    <button type="submit" class="btn btn-primary">发布</button>
+  </form>
+</div>
+{% endblock %}

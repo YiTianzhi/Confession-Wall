@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% from "_macros.html" import render_post with context %}
+
+{% block content %}
+<div class="hero">
+  <img class="school-logo" src="{{ url_for('static', filename='bjjdfz.png') }}" alt="{{ SCHOOL_NAME }}校徽">
+  <h1>{{ WALL_NAME }}</h1>
+  <p>把不敢说出口的话，写在这里吧 💌</p>
+  <div class="ai-badge">🤖 内容由 AI 辅助审核</div>
+  <a class="btn btn-primary" href="{{ url_for('new_post') }}">发布表白</a>
+</div>
+
+{% if posts.items %}
+  <div class="post-list">
+    {% for post in posts.items %}
+      {{ render_post(post) }}
+    {% endfor %}
+  </div>
+
+  <div class="pagination">
+    {% if posts.has_prev %}
+      <a class="btn btn-ghost" href="{{ url_for('index', page=posts.prev_num) }}">上一页</a>
+    {% endif %}
+    <span class="page-info">第 {{ posts.page }} / {{ posts.pages }} 页</span>
+    {% if posts.has_next %}
+      <a class="btn btn-ghost" href="{{ url_for('index', page=posts.next_num) }}">下一页</a>
+    {% endif %}
+  </div>
+{% else %}
+  <div class="empty">还没有表白，快来发布第一条吧！</div>
+{% endif %}
+{% endblock %}

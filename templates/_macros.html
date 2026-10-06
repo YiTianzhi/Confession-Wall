@@ -1,0 +1,22 @@
+{% macro render_post(post) %}
+<div class="card post-card">
+  <div class="post-head">
+    <span class="avatar">{{ post.anonymous_name[0] }}</span>
+    <div class="post-meta">
+      <span class="nick">{{ post.anonymous_name }}</span>
+      <span class="time" title="{{ post.created_at.strftime('%Y-%m-%d %H:%M') }}">{{ post.created_at|timeago }}</span>
+    </div>
+  </div>
+
+  <p class="post-content">{{ post.content }}</p>
+
+  <div class="post-actions">
+    <form method="post" action="{{ url_for('like_post', post_id=post.id) }}" class="inline">
+      <button type="submit" class="action-btn{{ ' liked' if post.id in liked_ids }}">
+        ♥ {{ post.like_count }}
+      </button>
+    </form>
+    <a class="action-btn" href="{{ url_for('post_detail', post_id=post.id) }}">💬 {{ post.comments.count() }}</a>
+  </div>
+</div>
+{% endmacro %}
