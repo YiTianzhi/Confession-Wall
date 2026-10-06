@@ -53,23 +53,23 @@ DEEPSEEK_API_KEY=你的key
 DEEPSEEK_MODEL=deepseek-flash
 TURNSTILE_SITE_KEY=
 TURNSTILE_SECRET_KEY=
-SMTP_HOST=smtp.163.com
+SMTP_HOST=smtp.126.com
 SMTP_PORT=465
 SMTP_SECURE=true
-SMTP_USER=你的163邮箱@163.com
-SMTP_PASS=你的163授权码
-SMTP_FROM=你的163邮箱@163.com
+SMTP_USER=你的126邮箱@126.com
+SMTP_PASS=你的126授权码
+SMTP_FROM=你的126邮箱@126.com
 ```
 
 `DEEPSEEK_API_KEY` 不填时，AI 审核会跳过、退回本地词表；`TURNSTILE_*` 不填时，发布前不显示人机验证。
 
 ## 邮箱验证码（低成本方案）
 
-推荐用 **163 邮箱的免费 SMTP**，无需购买域名或邮件服务：
+推荐用 **126 邮箱的免费 SMTP**，无需购买域名或邮件服务：
 
-1. 登录 mail.163.com → 设置 → POP3/SMTP/IMAP。
+1. 登录 mail.126.com → 设置 → POP3/SMTP/IMAP。
 2. 开启「SMTP 服务」，按提示完成短信验证，会得到一个 **授权码**（不是登录密码）。
-3. 把 `SMTP_HOST`、`SMTP_USER`（你的163邮箱）、`SMTP_PASS`（授权码）、`SMTP_FROM` 填进 `.env`。
+3. 把 `SMTP_HOST`、`SMTP_USER`（你的126邮箱）、`SMTP_PASS`（授权码）、`SMTP_FROM` 填进 `.env`。
 
 没配置 SMTP 时，开发环境会把验证码打印到服务器控制台，方便本地测试。
 
