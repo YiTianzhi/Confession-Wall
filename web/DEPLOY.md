@@ -52,19 +52,19 @@ DATABASE_URL=postgresql://数据库用户:数据库密码@127.0.0.1:5432/confess
 AUTH_SECRET=
 
 # 用这个邮箱注册会自动成为管理员
-ADMIN_EMAIL=你的邮箱@qq.com
+ADMIN_EMAIL=你的管理员邮箱
 
 # DeepSeek 内容审核
 DEEPSEEK_API_KEY=
 DEEPSEEK_MODEL=deepseek-flash
 
-# 邮箱验证码（QQ邮箱/163邮箱免费 SMTP）
-SMTP_HOST=smtp.qq.com
+# 邮箱验证码（163邮箱免费 SMTP）
+SMTP_HOST=smtp.163.com
 SMTP_PORT=465
 SMTP_SECURE=true
-SMTP_USER=你的QQ邮箱@qq.com
-SMTP_PASS=你的SMTP授权码
-SMTP_FROM=你的QQ邮箱@qq.com
+SMTP_USER=你的163邮箱@163.com
+SMTP_PASS=你的163授权码
+SMTP_FROM=你的163邮箱@163.com
 
 # 人机验证（可选）
 TURNSTILE_SITE_KEY=
@@ -141,5 +141,5 @@ pm2 restart confession-wall
 
 - 502：PM2 进程没起来，或 Nginx 反代端口写错。
 - 数据库连接失败：检查 `DATABASE_URL` 的用户名 / 密码 / 库名。
-- 验证码收不到：检查 QQ 邮箱是否开启 SMTP，`SMTP_PASS` 填的是授权码不是登录密码。
+- 验证码收不到：检查 163 邮箱是否开启 SMTP，`SMTP_PASS` 填的是授权码不是登录密码。
 - 部署后中文乱码：确保 `.env` 用 UTF-8 保存。
